@@ -2,17 +2,15 @@
   box-sizing: border-box;
 }
 
-$clr_white: #ffffff;
-
 .wrapper {
   display: flex;
   .side-bar {
-    background-color: #253141;
+    background-color: $clr_black;
     height: 100vh;
     width: 300px;
     color: $clr_white;
     &__top {
-      background-color: #253141;
+      background-color: $clr_black;
       height: 100px;
       display: flex;
       justify-content: center;
@@ -82,7 +80,7 @@ $clr_white: #ffffff;
         }
       }
       .edit-btn {
-        color: #38aef0;
+        color: $clr_light_blue;
         font-size: 16px;
         text-decoration: none;
         width: 72px;
@@ -91,7 +89,7 @@ $clr_white: #ffffff;
         margin-top: 28px;
         align-items: center;
         line-height: 40px;
-        border: 1px solid #38aef0;
+        border: 1px solid $clr_light_blue;
       }
     }
     &__message-list {
@@ -149,7 +147,7 @@ $clr_white: #ffffff;
         .submit-btn {
           width: 100px;
           height: 50px;
-          background-color: #38aef0;
+          background-color: $clr_light_blue;
           color: $clr_white;
           margin: auto 40px auto 15px;
           cursor: pointer;
