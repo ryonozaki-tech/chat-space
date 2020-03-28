@@ -5,7 +5,7 @@
         = current_user.name
       %ul.items__icons
         %li<>
-        = link_to "#", class: "items__icons__btn" do
+        = link_to new_group_path, class: "items__icons__btn" do
           = icon('far', 'edit')
         %li<>
         = link_to edit_user_path(current_user), class: "items__icons__btn" do
@@ -13,10 +13,9 @@
 
   
   .side-bar__group-list
-    = link_to "#", class: "group-lists" do
-      %p.a_group あaaaaa
-      %p.a_message まだメッセージがありません
-    = link_to "#", class: "group-lists" do
-      %p.a_group bbbbbb
-      %p.a_message まbbbbbbbbb
-    
+    - current_user.groups.each do |group|
+      = link_to edit_group_path(group[:id]), class: "group-lists" do
+        %p.a_group
+          = group.name
+        %p.a_message
+          メッセージはまだありません
