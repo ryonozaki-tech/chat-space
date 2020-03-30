@@ -1,40 +1,31 @@
 .chat-main
   .chat-main__group-info
     .current-group
-      %p.current-group__name test
-      %p.current-group__member Member:a b c
-
-    = link_to "#", class: "edit-btn" do
+      .current-group__name
+      = @group.name
+      .current-group__member
+        Member: 
+        - @group.users.each do |u|
+          = u.name
+    = link_to edit_group_path(@group), class: "edit-btn" do
       Edit
 
   .chat-main__message-list
-    .message-box
-      %p.messenger sk
-      %p.message-time 2020/03/26(Thu) 20:05:32
-    %p.message-text おはよう！
+    = render @messages
+
     
-    .message-box
-      %p.messenger msr
-      %p.message-time 2020/03/26(Thu) 20:09:55
-    %p.message-text こんにちは！
-
-    .message-box
-      %p.messenger rin
-      %p.message-time 2020/03/26(Thu) 20:09:55
-    %p.message-text こんにちは！！
-
-    .message-box
-      %p.messenger krn
-      %p.message-time 2020/03/26(Thu) 20:09:55
-    %p.message-text こんにちは！！！
+    -# .message-box
+    -#   %p.messenger msr
+    -#   %p.message-time 2020/03/26(Thu) 20:09:55
+    -# %p.message-text こんにちは！
 
 
-  .chat-main__message-form
-    %form.message-submit-box
+  .chat-main__form
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('fas','image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", value: "Send", class: "submit-btn"}
-    
+        = f.text_field :content, class: 'input-text', placeholder: 'type a message'
+        .input-mask
+          = f.label :image, class: 'input-image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'input-image-file'
+      = f.submit 'Send', class: 'submit-btn'
