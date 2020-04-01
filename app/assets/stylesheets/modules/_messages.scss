@@ -40,6 +40,7 @@
       background-color: #2f3e51;
       height: calc(100vh - 100px);
       padding: 20px 20px 0;
+      overflow: scroll;
       .group-lists {
         color: $clr_white;
         text-decoration: none;
@@ -98,24 +99,26 @@
       border-top: 1px solid #eeeeee;
       padding: 35px 40px 0;
       overflow: scroll;
-      .message-box {
-        display: flex;
-        &__user-name {
-          font-size: 16px;
-          color: #333333;
-          margin-bottom: 12px;
-          font-weight: bold;
+      .message {
+        .message-box {
+          display: flex;
+          &__user-name {
+            font-size: 16px;
+            color: #333333;
+            margin-bottom: 12px;
+            font-weight: bold;
+          }
+          &__date {
+            font-size: 12px;
+            color: #999999;
+            margin-left: 10px;
+          }
         }
-        &__date {
-          font-size: 12px;
-          color: #999999;
-          margin-left: 10px;
+        .message-text {
+          font-size: 14px;
+          color: #434a54;
+          margin-bottom: 46px;
         }
-      }
-      .message-text {
-        font-size: 14px;
-        color: #434a54;
-        margin-bottom: 46px;
       }
     }
     &__form {
